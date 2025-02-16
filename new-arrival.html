@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrivals - Wearz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+</head>
+<body>
+     <!-- Cart Modal -->
+     <div id="cart-modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="cart-items" class="list-group"></ul>
+                    <p class="mt-3"><strong>Total: </strong><span id="cart-total">$0</span></p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" onclick="clearCart()">Clear Cart</button>
+                    <button class="btn btn-success" onclick="checkout()">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/WEARZ.png" alt="Wearz Logo" class="logo"> 
+               
+            </a><b>Wearz</b>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="new-arrival.html">New Arrivals</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-dark position-relative" onclick="toggleCart()">
+                            <i class="bi bi-cart"></i>
+                            <span id="cart-count" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="hero text-center text-white py-5" style="background-color: #808567;">
+        <h1>New Arrivals</h1>
+        <p>Discover the latest trends and styles</p>
+    </header>
+    
+    <section class="container py-5">
+        <!-- Baggy Jeans Section -->
+        <h2 class="text-center mb-4">Baggy Jeans</h2>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <img src="images/baggy.jpeg" class="card-img-top" alt="Baggy Jeans 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Classic Baggy Jeans</h5>
+                        <p class="card-text">£90.00</p>
+                        <button class="btn btn-success" onclick="addToCart('baggy jeans', 90)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <img src="images/cargopant.webp" class="card-img-top" alt="Baggy Jeans 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Distressed cargo pant</h5>
+                        <p class="card-text">£50.00</p>
+                        <button class="btn btn-success" onclick="addToCart('baggy jeans', 50)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <img src="images/baggywhite.jpeg" class="card-img-top" alt="Baggy Jeans 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Baggy cargo pant</h5>
+                        <p class="card-text">£50.00</p>
+                        <button class="btn btn-success" onclick="addToCart('Baggy cargo pant', 50)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!--  Hoodie Section -->
+        <h2 class="text-center mt-5 mb-4">Baggy Hoodies</h2>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <img src="images/baggyhod.jpg" class="card-img-top" alt="Baggy Hoodie 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Oversized Hoodie</h5>
+                        <p class="card-text">£65.00</p>
+                        <button class="btn btn-success" onclick="addToCart('Oversized hodie ', 65.00)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <img src="images/baggyhodie.jpeg" class="card-img-top" alt="Baggy Hoodie 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Green zipup Hoodie</h5>
+                        <p class="card-text">£70.00</p>
+                        <button class="btn btn-success" onclick="addToCart('hodie', 70)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Baggy Jacket Section -->
+        <h2 class="text-center mt-5 mb-4">Baggy Jackets</h2>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <img src="images/baggyjack.jpeg" class="card-img-top" alt="Baggy Jacket 1">
+                    <div class="card-body">
+                        <h5 class="card-title">black solid Jacket</h5>
+                        <p class="card-text">£70.00</p>
+                        <button class="btn btn-success" onclick="addToCart('black solid jacket', 70)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <img src="images/baggysoftjacket.jpg" class="card-img-top" alt="Baggy Jacket 2">
+                    <div class="card-body">
+                        <h5 class="card-title">whole softfurry zipup</h5>
+                        <p class="card-text">£95.00</p>
+                        <button class="btn btn-success" onclick="addToCart('soft furr zipup', 95)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="styled-by-you">
+        <h2>STYLED BY YOU</h2>
+        <p>#WEARZ</p>
+        <div class="styled-container">
+            <div class="styled-card">
+                <img src="images/daniel.jpeg" alt="daniel">
+                <h3>Daniel Craig</h3>
+                <p>wearing our</p>
+                <p>Baggy khakis</p>
+            </div>
+            <div class="styled-card">
+                <img src="images/margot.jpg" alt="margot">
+                <h3>Margot Robbie</h3>
+                <p>wearing our</p>
+                <p>Baggy jeans</p>
+            </div>
+            <div class="styled-card">
+                <img src="images/kit.jpg" alt="Kit">
+                <h3>kit Harington</h3>
+                <p>wearing our</p>
+                <p>Airy double linen</p>
+            </div>
+            <div class="styled-card">
+                <img src="images/taron.jpeg" alt="taron">
+                <h3>Taron Egerton</h3>
+                <p>wearing our</p>
+                <p>Jean jacket</p>
+            </div>
+            
+        
+        </div>
+    </section>
+    
+    <footer class="text-center py-3 bg-dark text-white">
+        <img src="images/WEARZ.png" alt="Wearz Logo" class="footer-logo">
+        <p>&copy; 2025 Wearz. All Rights Reserved.</p>
+        <div class="footer-social">
+            <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.whatsapp.com" target="_blank"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+        </div>
+    </footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+      <!-- Toast Notification -->
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="cart-toast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Item added to cart successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
